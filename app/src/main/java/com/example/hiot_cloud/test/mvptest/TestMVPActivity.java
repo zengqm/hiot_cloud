@@ -22,7 +22,7 @@ public class TestMVPActivity extends BaseActivity<TestView, TestPresenter> imple
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        getComponent().inject(this);
+        getActivityComponent().inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_mvp);
 
@@ -51,12 +51,6 @@ public class TestMVPActivity extends BaseActivity<TestView, TestPresenter> imple
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
-    /**
-     * 创建注入器
-     * @return
-     */
-    public PresenterComponent getComponent(){
-        return DaggerPresenterComponent.builder().build();
-    }
+
 
 }
