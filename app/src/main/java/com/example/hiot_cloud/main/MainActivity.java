@@ -1,15 +1,11 @@
-package com.example.hiot_cloud;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.hiot_cloud.main;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
-import com.example.hiot_cloud.test.mvptest.model.User;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.hiot_cloud.R;
 
 public class MainActivity extends AppCompatActivity {
 
