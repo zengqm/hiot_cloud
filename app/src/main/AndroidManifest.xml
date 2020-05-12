@@ -15,6 +15,15 @@
         android:roundIcon="@mipmap/hiotapp"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".test.networktest.TestRxJavaActivity">
+        </activity>
+        <activity android:name=".test.networktest.TestGsonActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".test.networktest.TestRetrofitActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,9 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".test.networktest.TestOkHttpActivity">
-
-        </activity>
+        <activity android:name=".test.networktest.TestOkHttpActivity" />
         <activity android:name=".ui.main.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
