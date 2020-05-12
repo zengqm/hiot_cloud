@@ -66,6 +66,7 @@ public class TestRxJavaActivity extends AppCompatActivity {
         btnUpdateEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getUpdateEmail("1b74b89f2b3c497a86b0eb346c152b95_77f7710037e14583b0f7a5fafb580649_use","zqm@qq.com");
 
             }
         });
@@ -75,6 +76,7 @@ public class TestRxJavaActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                register( );
 
             }
         });
@@ -147,6 +149,91 @@ public class TestRxJavaActivity extends AppCompatActivity {
                     @Override
                     public void onError(Throwable e) {
                         Log.e(TAG, "onError: " +e.getMessage(),e );
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    /**
+     * 修改邮箱
+     * @param authorization
+     * @param email
+     */
+    private void getUpdateEmail(String authorization, String email){
+        service.updateEmail(authorization, email)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResultBase<String>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(ResultBase<String> resultBase) {
+                        if (resultBase != null && resultBase.getData() != null) {
+                            String string = resultBase.getData();
+                            Log.d( TAG, "onNext:"  );
+                        }
+                        Log. d( TAG ,resultBase. getMsg()) ;
+                        if(resultBase != null && !TextUtils.isEmpty(  resultBase.getMsg())){
+                            Toast.makeText(TestRxJavaActivity.this, resultBase.getMsg(), Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e(TAG, "onRrror:" + e.getMessage(),e);
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    /**
+     * 注册
+     */
+    private void register() {
+        UserBean userBean = new UserBean();
+        userBean.setUsername("zqmtest");
+        userBean.setEmail("test@qq.com");
+        userBean.setPassword("zqm123");
+        userBean.setUserType("1");
+        service.register(userBean )
+                .subscribeOn( Schedulers.io())
+                .observeOn( AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResultBase<UserBean>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(ResultBase<UserBean> resultBase) {
+                        if (resultBase != null && resultBase.getData() != null) {
+                            UserBean userBean = resultBase.getData();
+                            Log.d( TAG, "onNext:" );
+                        }
+                        Log. d( TAG ,resultBase. getMsg());
+
+                        if(resultBase != null && !TextUtils.isEmpty(  resultBase.getMsg())){
+                            Toast.makeText(TestRxJavaActivity.this, resultBase.getMsg(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e(TAG, "onRrror:" + e.getMessage(),e);
 
                     }
 

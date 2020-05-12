@@ -16,13 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".test.networktest.TestRxJavaActivity">
-        </activity>
-        <activity android:name=".test.networktest.TestGsonActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".test.networktest.TestGsonActivity">
         </activity>
         <activity android:name=".test.networktest.TestRetrofitActivity">
             <intent-filter>
