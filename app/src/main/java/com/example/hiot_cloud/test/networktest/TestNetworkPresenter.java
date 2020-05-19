@@ -98,6 +98,12 @@ public class TestNetworkPresenter extends BasePresenter<TestNetworkPackView> {
                 }
 
             }
+
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+                getView().showMessage(e.getMessage());
+            }
         });
 
     }

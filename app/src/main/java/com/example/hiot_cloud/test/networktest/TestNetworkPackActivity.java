@@ -60,7 +60,7 @@ public class TestNetworkPackActivity extends BaseActivity implements TestNetwork
         btnUpdateEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.updateEmail(etToken.getText().toString(), "testzqm@qq.com");
+                presenter.updateEmail(etToken.getText().toString(), "testzqm1234@qq.com");
             }
         });
 
@@ -69,7 +69,7 @@ public class TestNetworkPackActivity extends BaseActivity implements TestNetwork
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.register("zengqiongmeitest1", "zqm1234", "zqmtest@qq.com");
+                presenter.register("zengqiongmeitest", "zqm123", "test1234@qq.com");
             }
         });
 
