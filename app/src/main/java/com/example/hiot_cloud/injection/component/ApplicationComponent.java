@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.example.hiot_cloud.App;
+import com.example.hiot_cloud.data.DataManager;
 import com.example.hiot_cloud.injection.ApplicationContext;
 import com.example.hiot_cloud.injection.module.ApplicationModule;
 
@@ -24,6 +25,8 @@ public interface ApplicationComponent {
     Context context();
 
     Application application();
+
+    DataManager dataManager();
 
 
     @Component.Builder

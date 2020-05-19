@@ -1,7 +1,5 @@
 package com.example.hiot_cloud.test.networktest;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -10,12 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.hiot_cloud.R;
-import com.example.hiot_cloud.data.NetService;
+import com.example.hiot_cloud.data.NetworkService;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
@@ -27,7 +26,7 @@ public class TestRxJavaActivity extends AppCompatActivity {
 
     private static final String TAG = "TestRxJavaActivity";
     private Retrofit retrofit;
-    private NetService service;
+    private NetworkService service;
     private EditText etToken;
 
     @Override
@@ -66,7 +65,7 @@ public class TestRxJavaActivity extends AppCompatActivity {
         btnUpdateEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getUpdateEmail("1b74b89f2b3c497a86b0eb346c152b95_77f7710037e14583b0f7a5fafb580649_use","zqm@qq.com");
+                getUpdateEmail("1b74b89f2b3c497a86b0eb346c152b95_9477bdf0b5724827ba0de3f180a9c315_use", "zqmtest123@qq.com");
 
             }
         });
@@ -205,8 +204,8 @@ public class TestRxJavaActivity extends AppCompatActivity {
      */
     private void register() {
         UserBean userBean = new UserBean();
-        userBean.setUsername("zqmtest");
-        userBean.setEmail("test@qq.com");
+        userBean.setUsername("testzqm");
+        userBean.setEmail("zqmtest123456@qq.com");
         userBean.setPassword("zqm123");
         userBean.setUserType("1");
         service.register(userBean )
@@ -252,6 +251,6 @@ public class TestRxJavaActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
-        service = retrofit.create(NetService.class);
+        service = retrofit.create(NetworkService.class);
     }
 }
