@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.example.hiot_cloud.R;
 import com.example.hiot_cloud.ui.base.BaseActivity;
 import com.example.hiot_cloud.ui.main.MainActivity;
+import com.example.hiot_cloud.utils.LoadingUtil;
 import com.example.hiot_cloud.utils.ValidatorUtils;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -39,6 +40,7 @@ public class LoginActivity extends BaseActivity<LoginView, LoginPresenter> imple
                 String password = tiptetPassword.getText().toString();
                 if (ValidateSucc(email, password)) {
                     //请求服务端身份验证
+                    LoadingUtil.showLoading(LoginActivity.this, "正在登录...");
                     presenter.login(email, password);
 
                 }

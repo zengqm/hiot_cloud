@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.example.hiot_cloud.App;
 import com.example.hiot_cloud.data.DataManager;
+import com.example.hiot_cloud.data.SharedPreferencesHelper;
 import com.example.hiot_cloud.injection.ApplicationContext;
 import com.example.hiot_cloud.injection.module.ApplicationModule;
 
@@ -28,6 +29,7 @@ public interface ApplicationComponent {
 
     DataManager dataManager();
 
+    SharedPreferencesHelper sharedPreferencesHelper();
 
     @Component.Builder
     interface ApplicationModuleBuilder {
