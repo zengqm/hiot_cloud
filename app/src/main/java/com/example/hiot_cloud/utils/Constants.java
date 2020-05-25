@@ -1,6 +1,6 @@
 package com.example.hiot_cloud.utils;
 
-public class Constant {
+public class Constants {
     public static final int MAIN_FRAGMENT_COUNT=4;
     /**
      * 主页viewpager的消息fragment选择序号

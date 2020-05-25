@@ -17,7 +17,7 @@ public class TestGlideActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_glide);
-        final String url = "http://p1.pstatp.com/large/166200019850062839d3";
+        final String url = "http://pic1.win4000.com/wallpaper/2018-08-16/5b750e40cbed0.jpg";
 
         //glide加载按钮
         final ImageView iv = findViewById(R.id.iv_glide_test);
