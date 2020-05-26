@@ -27,6 +27,6 @@
         android:background="@drawable/login_button_bg"
         android:text="登录"
         android:textColor="#ffffff"
-        android:textSize="20sp" /> />
+        android:textSize="20sp" />
 
 </LinearLayout>

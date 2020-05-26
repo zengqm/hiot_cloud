@@ -12,7 +12,7 @@ import com.example.hiot_cloud.utils.Constants;
 import javax.inject.Inject;
 
 /**
- * 注册模板resenter类
+ * 注册模板presenter类
  */
 class RegisterPresenter extends BasePresenter<RegisterView> {
 

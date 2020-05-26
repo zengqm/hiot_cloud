@@ -71,12 +71,12 @@ public class RegisterActivity extends BaseActivity<RegisterView, RegisterPresent
     private boolean ValidateSucc(String userName, String email, String password) {
 
         //校验用户名非空
-        if (TextUtils.isEmpty(email)) {
+        if (TextUtils.isEmpty(userName)) {
             tiptetUserName.setError("用户名不能为空，请重新输入");
             return false;
         }
         //校验用户名合规
-        if (!ValidatorUtils.isEmail(email)) {
+        if (!ValidatorUtils.isEmail(userName)) {
             tiptetUserName.setError("用户名输入不正确，请重新输入");
             return false;
         }
@@ -108,13 +108,6 @@ public class RegisterActivity extends BaseActivity<RegisterView, RegisterPresent
         return true;
     }
 
-    @OnClick(R.id.btn_login)
-    public void onBtnLoginClicked() {
-    }
-
-    @OnClick(R.id.tv_link_login)
-    public void onTvLinkSignupClicked() {
-    }
 
     @OnClick({R.id.btn_register, R.id.tv_link_login})
     public void onViewClicked(View view) {
@@ -136,7 +129,7 @@ public class RegisterActivity extends BaseActivity<RegisterView, RegisterPresent
 
     @Override
     public void registerSucc(String email, String password) {
-        //TODO 注册成功后,做自动登录
+        //注册成功后,做自动登录
         presenter.login(email, password);
     }
 

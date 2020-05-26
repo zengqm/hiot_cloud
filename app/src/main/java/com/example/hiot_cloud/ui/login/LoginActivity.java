@@ -24,6 +24,9 @@ import butterknife.OnClick;
 
 public class LoginActivity extends BaseActivity<LoginView, LoginPresenter> implements LoginView {
 
+    @Inject
+    LoginPresenter presenter;
+
     @BindView(R.id.tiptet_email)
     TextInputEditText tiptetEmail;
 
@@ -33,8 +36,6 @@ public class LoginActivity extends BaseActivity<LoginView, LoginPresenter> imple
     @BindView(R.id.btn_login)
     Button btnLogin;
 
-    @Inject
-    LoginPresenter presenter;
 
     /**
      * 注册
@@ -66,6 +67,19 @@ public class LoginActivity extends BaseActivity<LoginView, LoginPresenter> imple
 //                }
 //            }
 //        });
+    }
+
+    @OnClick(R.id.btn_login)
+    public void onClick(View view) {
+        //如果校验成功，则保存登录状态，跳转到列表界面
+        String email = tiptetEmail.getText().toString();
+        String password = tiptetPassword.getText().toString();
+        if (ValidateSucc(email, password)) {
+            //请求服务端身份验证
+            LoadingUtil.showLoading(LoginActivity.this, "正在登录...");
+            presenter.login(email, password);
+
+        }
     }
 
     @Override
@@ -123,18 +137,6 @@ public class LoginActivity extends BaseActivity<LoginView, LoginPresenter> imple
         finish();
     }
 
-    @OnClick(R.id.bt_login)
-    public void onClick(View view) {
-        //如果校验成功，则保存登录状态，跳转到列表界面
-        String email = tiptetEmail.getText().toString();
-        String password = tiptetPassword.getText().toString();
-        if (ValidateSucc(email, password)) {
-            //请求服务端身份验证
-            LoadingUtil.showLoading(LoginActivity.this, "正在登录...");
-            presenter.login(email, password);
-
-        }
-    }
 
     @OnClick(R.id.tv_link_signup)
     public void onViewClicked() {
