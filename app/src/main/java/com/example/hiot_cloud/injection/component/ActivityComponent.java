@@ -22,7 +22,9 @@ import com.example.hiot_cloud.test.mvptest.TestMVPActivity;
 import com.example.hiot_cloud.test.networktest.TestNetworkPackActivity;
 import com.example.hiot_cloud.ui.login.LoginActivity;
 import com.example.hiot_cloud.ui.main.MainActivity;
+import com.example.hiot_cloud.ui.main.MassageFragment;
 import com.example.hiot_cloud.ui.main.SplashActivity;
+import com.example.hiot_cloud.ui.mine.MineFragment;
 import com.example.hiot_cloud.ui.register.RegisterActivity;
 
 import dagger.Component;
@@ -38,6 +40,7 @@ import dagger.Component;
 public interface ActivityComponent {
 
     void inject(MainActivity mainActivity);
+
     void inject(TestMVPActivity testMVPActivity);
 
     void inject(TestNetworkPackActivity activity);
@@ -47,6 +50,10 @@ public interface ActivityComponent {
     void inject(SplashActivity activity);
 
     void inject(RegisterActivity activity);
+
+    void inject(MassageFragment fragment);
+
+    void inject(MineFragment fragment);
 
     @Component.Builder
     interface ActivityComponentBuilder {
